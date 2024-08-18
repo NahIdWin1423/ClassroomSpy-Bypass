@@ -1,0 +1,16 @@
+const { exec } = require('child_process');
+
+function terminateClassroomSpy() {
+    const command = 'taskkill /F /IM ClassroomSpy.exe';
+    
+    exec(command, (error, stdout, stderr) => {
+        if (error) {
+            console.error(`Error terminating ClassroomSpy: ${error.message}`);
+            return;
+        }
+        console.log(`ClassroomSpy terminated: ${stdout}`);
+    });
+}
+
+// Call the function
+terminateClassroomSpy();
